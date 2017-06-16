@@ -2,6 +2,7 @@ package com.mycompany.cditest.jsf;
 
 import com.mycompany.cditest.entity.Movie;
 import com.mycompany.cditest.event.MovieEvent;
+import com.mycompany.cditest.event.MovieEventQualifier;
 import com.mycompany.cditest.jsf.util.JsfUtil;
 import com.mycompany.cditest.jsf.util.JsfUtil.PersistAction;
 import com.mycompany.cditest.session.MovieFacade;
@@ -32,7 +33,8 @@ public class MovieController implements Serializable {
     private Movie selected;
     
     @Inject
-    Event<MovieEvent> movieEvents;
+    @MovieEventQualifier
+    private Event<MovieEvent> movieEvents;
 
     public MovieController() {
     }
